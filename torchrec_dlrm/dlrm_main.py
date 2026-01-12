@@ -531,18 +531,26 @@ def main(argv: list[str]) -> None:
             and len(args.multi_hot_sizes) == len(args.num_embeddings_per_feature)
             or args.num_embeddings_per_feature is None
             and len(args.multi_hot_sizes) == len(DEFAULT_CAT_NAMES)
-        ), "--multi_hot_sizes must be a comma delimited list the same size as the number of embedding tables."
+        ), (
+            "--multi_hot_sizes must be a comma delimited list the same size as the number of embedding tables."
+        )
     assert (
         args.in_memory_binary_criteo_path is None
         or args.synthetic_multi_hot_criteo_path is None
-    ), "--in_memory_binary_criteo_path and --synthetic_multi_hot_criteo_path are mutually exclusive CLI arguments."
+    ), (
+        "--in_memory_binary_criteo_path and --synthetic_multi_hot_criteo_path are mutually exclusive CLI arguments."
+    )
     assert (
         args.multi_hot_sizes is None or args.synthetic_multi_hot_criteo_path is None
-    ), "--multi_hot_sizes is used to convert 1-hot to multi-hot. It's inapplicable with --synthetic_multi_hot_criteo_path."
+    ), (
+        "--multi_hot_sizes is used to convert 1-hot to multi-hot. It's inapplicable with --synthetic_multi_hot_criteo_path."
+    )
     assert (
         args.multi_hot_distribution_type is None
         or args.synthetic_multi_hot_criteo_path is None
-    ), "--multi_hot_distribution_type is used to convert 1-hot to multi-hot. It's inapplicable with --synthetic_multi_hot_criteo_path."
+    ), (
+        "--multi_hot_distribution_type is used to convert 1-hot to multi-hot. It's inapplicable with --synthetic_multi_hot_criteo_path."
+    )
 
     rank = int(os.environ["LOCAL_RANK"])
     if torch.cuda.is_available():

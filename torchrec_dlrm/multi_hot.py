@@ -5,7 +5,6 @@
 
 
 import numpy as np
-
 import torch
 from torchrec.datasets.utils import Batch
 from torchrec.sparse.jagged_tensor import KeyedJaggedTensor

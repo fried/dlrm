@@ -27,7 +27,6 @@ from collections import deque
 from os import path
 
 import data_loader_terabyte
-
 import data_utils
 import mlperf_logger
 
